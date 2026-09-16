@@ -1,15 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>product</ion-title>
+    <ion-title>Product</ion-title>
   </ion-toolbar>
-   <ion-menu-toggle>
-    <ion-item routerLink="/home">
-      <ion-icon name="home" slot="start"></ion-icon>
-      <ion-label>Home</ion-label>
-    </ion-item>
-  </ion-menu-toggle>
 </ion-header>
 
-
-
-
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">product</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-searchbar placeholder="Cari Produk..." [(ngModel)]="searchTerm" (ionInput)="filterProducts()"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let product of filterProduk">
+      <ion-label>{{ product.name }} <br><p>Harga: Rp.{{ product.price }}</p></ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
