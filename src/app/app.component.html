@@ -8,23 +8,34 @@
     <ion-content class="ion-padding">
       <ion-list>
         <ion-menu-toggle>
-          <ion-item routerLink="/pengaturan">
-            <ion-icon name="settings" slot="start"></ion-icon>
-            <ion-label>Pengaturan</ion-label>
+          <ion-item routerLink="/dashboard">
+            <ion-icon name="grid" slot="start"></ion-icon>
+            <ion-label>Dashboard</ion-label>
           </ion-item>
         </ion-menu-toggle>
+
         <ion-menu-toggle>
-          <ion-item routerLink="/tentangaplikasi">
-            <ion-icon name="information" slot="start"></ion-icon>
-            <ion-label>Tentang Aplikasi</ion-label>
+          <ion-item routerLink="/product">
+            <ion-icon name="bag-outline" slot="start"></ion-icon>
+            <ion-label>Produk</ion-label>
           </ion-item>
         </ion-menu-toggle>
+
         <ion-menu-toggle>
-          <ion-item routerLink="/logout">
-            <ion-icon name="log-out" slot="start"></ion-icon>
-            <ion-label>Logout</ion-label>
+          <ion-item routerLink="/transaksi">
+            <ion-icon name="card-outline" slot="start"></ion-icon>
+            <ion-label>Transaksi</ion-label>
           </ion-item>
         </ion-menu-toggle>
+
+        
+        <ion-menu-toggle>
+          <ion-item routerLink="/profil">
+            <ion-icon name="person-outline" slot="start"></ion-icon>
+            <ion-label>Profil</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
       </ion-list>
     </ion-content>
   </ion-menu>
@@ -33,24 +44,19 @@
 
   <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home">
-        <ion-icon name="grid"></ion-icon>
-        <ion-label>Dasboard</ion-label>
+      <ion-tab-button tab="pengaturan">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Pengaturan</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button tab="product">
-        <ion-icon name="bag-outline"></ion-icon>
-        <ion-label>Product</ion-label>
+      <ion-tab-button tab="tentangaplikasi">
+        <ion-icon name="information"></ion-icon>
+        <ion-label>About</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button tab="transaksi">
-        <ion-icon name="cart-outline"></ion-icon>
-        <ion-label>Transaksi</ion-label>
-      </ion-tab-button>
-
-      <ion-tab-button tab="profil">
-        <ion-icon name="person-outline"></ion-icon>
-        <ion-label>Profil</ion-label>
+      <ion-tab-button tab="logout">
+        <ion-icon name="log-out"></ion-icon>
+        <ion-label>Logout</ion-label>
       </ion-tab-button>
 
     </ion-tab-bar>
