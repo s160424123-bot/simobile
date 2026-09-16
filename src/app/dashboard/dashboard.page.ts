@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardPage implements OnInit {
 
+  produkTerlaris: string = '';
+  jumlahProduk: number = 0;
+  totalTransaksiHariIni: number = 0;
   constructor() { }
 
   
