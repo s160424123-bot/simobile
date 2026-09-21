@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Tambah Produk</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tambah Produk</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item>
+      <ion-input label="Produk Name" labelPlacement="stacked" 
+        placeholder="Enter product name" [(ngModel)]="new_name">
+      </ion-input>
+  </ion-item>
+  
+  <ion-item>
+      <ion-input
+        type="number" label="Harga Beli" labelPlacement="stacked"
+        placeholder="Masukkan harga beli"
+        [(ngModel)]="new_hargaBeli">
+      </ion-input>
+  </ion-item>
+
+   <ion-item>
+      <ion-input
+        type="number"
+        label="Harga Jual"
+        labelPlacement="stacked"
+        placeholder="Masukkan harga jual"
+        [(ngModel)]="new_hargaJual">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        type="number"
+        label="Stok"
+        labelPlacement="stacked"
+        placeholder="Masukkan stok"
+        [(ngModel)]="new_stok">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-button
+        id="btnsubmit"
+        (click)="submitproduk()">
+        Simpan Produk
+      </ion-button>
+    </ion-item>
+
+
+  </ion-list>
+
+</ion-content>

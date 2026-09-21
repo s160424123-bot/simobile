@@ -20,6 +20,8 @@ const routes: Routes = [
     path: 'tabs',
     children: [
       { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule) },
+      { path: 'pengaturan', loadChildren: () => import('./pengaturan/pengaturan.module').then(m => m.PengaturanPageModule) },  
+     
     ]
   },
 
@@ -55,6 +57,16 @@ const routes: Routes = [
   path: 'detailproduk/:id',
   loadChildren: () => import('./detailproduk/detailproduk.module').then(m => m.DetailprodukPageModule)
   },
+  {
+    path: 'newproduk',
+    loadChildren: () => import('./newproduk/newproduk.module').then( m => m.NewprodukPageModule)
+  },
+  {
+    path: 'editproduk/:id',
+    loadChildren: () => import('./editproduk/editproduk.module').then( m => m.EditprodukPageModule)
+  },
+
+
 ];
 
 @NgModule({
