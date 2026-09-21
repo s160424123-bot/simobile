@@ -12,9 +12,7 @@ export class DashboardPage implements OnInit {
   jumlahProduk: number = 0;
   totalTransaksiHariIni: number = 0;
   constructor() { }
-
   
-
   ngOnInit() {
   }
 

@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-pengaturan',
   templateUrl: './pengaturan.page.html',
   styleUrls: ['./pengaturan.page.scss'],
-  standalone: false,
+  standalone: false
 })
-export class PengaturanPage implements OnInit {
+export class PengaturanPage {
 
-  constructor() { }
+  darkMode = true;
 
-  ngOnInit() {
+  constructor() {}
+
+  ubahDarkMode() {
+    document.body.classList.toggle('dark', this.darkMode);
   }
 
 }
