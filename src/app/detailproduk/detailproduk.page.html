@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>detailproduk</ion-title>
+    <ion-title>Detail Produk</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,4 +10,22 @@
       <ion-title size="large">detailproduk</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-card>
+    <img [src]="product[id].gambar || 'https://placehold.co/300x200?text=No+Image'">
+    <ion-card-header>
+      <ion-card-title>{{ product[id].name }}</ion-card-title>
+      <!-- <ion-card-subtitle>{{product[id].price | number}}</ion-card-subtitle> -->
+    </ion-card-header>
+
+    <ion-card-content>
+      Stok: {{ product[id].stok }}<br>
+      Harga Beli: Rp.{{ product[id].HargaBeli | number }}<br>
+      Harga Jual: Rp.{{ product[id].HargaJual | number }}
+    </ion-card-content>
+
+    <ion-button [disabled]="product[id].stok === 0" (click)="tambahKeranjang()">
+      Tambah ke Keranjang
+    </ion-button>
+  </ion-card>
 </ion-content>

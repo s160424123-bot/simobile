@@ -14,10 +14,22 @@
       <ion-title size="large">product</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-searchbar placeholder="Cari Produk..." [(ngModel)]="searchTerm" (ionInput)="filterProducts()"></ion-searchbar>
-  <ion-list>
+  <!-- <ion-searchbar placeholder="Cari Produk..." [(ngModel)]="searchTerm" (ionInput)="filterProducts()"></ion-searchbar> -->
+  <!-- <ion-list>
     <ion-item *ngFor="let product of filterProduk">
       <ion-label>{{ product.name }} <br><p>Harga: Rp.{{ product.price }}</p></ion-label>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
+  <ion-row *ngFor="let product2 of chunkArray(product, 2); let i = index">
+      <ion-col *ngFor="let product of product2; let i2 = index">
+        <ion-list>
+          <ion-item>
+            <!-- <ion-img [src]="product.url"></ion-img> -->
+          </ion-item>
+          <ion-item routerLink="/detailproduk/{{(i*2)+i2}}">
+            {{product.name}}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
 </ion-content>
