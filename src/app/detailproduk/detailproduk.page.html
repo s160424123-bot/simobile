@@ -12,19 +12,19 @@
   </ion-header>
 
   <ion-card>
-    <img [src]="product[id].gambar || 'https://placehold.co/300x200?text=No+Image'">
+    <img [src]="products[id].gambar || 'https://placehold.co/300x200?text=No+Image'">
     <ion-card-header>
-      <ion-card-title>{{ product[id].name }}</ion-card-title>
+      <ion-card-title>{{ products[id].name }}</ion-card-title>
       <!-- <ion-card-subtitle>{{product[id].price | number}}</ion-card-subtitle> -->
     </ion-card-header>
 
     <ion-card-content>
-      Stok: {{ product[id].stok }}<br>
-      Harga Beli: Rp.{{ product[id].HargaBeli | number }}<br>
-      Harga Jual: Rp.{{ product[id].HargaJual | number }}
+      Stok: {{ products[id].stok }}<br>
+      Harga Beli: Rp.{{ products[id].HargaBeli | number }}<br>
+      Harga Jual: Rp.{{ products[id].HargaJual | number }}
     </ion-card-content>
 
-    <ion-button [disabled]="product[id].stok === 0" (click)="tambahKeranjang()">
+    <ion-button [disabled]="products[id].stok === 0" (click)="tambahKeranjang()">
       Tambah ke Keranjang
     </ion-button>
   </ion-card>

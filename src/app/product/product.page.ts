@@ -7,11 +7,9 @@ import { Product } from '../product';
   standalone: false,
 })
 export class ProductPage implements OnInit {
-  product: any[] = [];
+  products: any[] = [];  
 
-  constructor(private productservice: Product) { }
-  
- 
+  constructor(private product: Product) { }
 
   // filterProduk = this.product;
   // searchTerm: string = '';
@@ -23,15 +21,16 @@ export class ProductPage implements OnInit {
   // }
 
 
-  ngOnInit() { this.product = this.productservice.product;
-  }
-
   chunkArray(arr: any[], chunkSize: number): any[][] {
     const result = [];
     for (let i = 0; i < arr.length; i += chunkSize) {
       result.push(arr.slice(i, i + chunkSize));
     }
     return result;
+  }
+
+  ngOnInit() {
+     this.products = this.product.products;
   }
 
 }

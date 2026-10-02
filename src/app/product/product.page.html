@@ -20,8 +20,8 @@
       <ion-label>{{ product.name }} <br><p>Harga: Rp.{{ product.price }}</p></ion-label>
     </ion-item>
   </ion-list> -->
-  <ion-row *ngFor="let product2 of chunkArray(product, 2); let i = index">
-      <ion-col *ngFor="let product of product2; let i2 = index">
+  <ion-row *ngFor="let products2 of chunkArray(products, 2); let i = index">
+      <ion-col *ngFor="let product of products2; let i2 = index">
         <ion-list>
           <ion-item>
             <!-- <ion-img [src]="product.url"></ion-img> -->

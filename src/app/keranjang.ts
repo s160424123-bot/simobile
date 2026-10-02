@@ -1,5 +1,19 @@
-import { Service } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Service()
+@Injectable({
+  providedIn: 'root'
+})
 export class Keranjang {
+    cart: any[] = [];
+
+    constructor() { }
+
+    tambahKeKeranjang(product: any) {
+        this.cart.push(product);
+    }
+
+    getCart() {
+        return this.cart;
+    }
+
 }

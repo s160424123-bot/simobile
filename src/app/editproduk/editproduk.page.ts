@@ -9,28 +9,29 @@ import { Product } from '../product';
   standalone: false,
 })
 export class EditprodukPage implements OnInit {
-   id = 0;
+  id = 0;
 
   new_name: string = '';
   new_hargaBeli: number = 0;
   new_hargaJual: number = 0;
   new_stok: number = 0;
 
-  constructor(    private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,
     private productservice: Product,
-  private router: Router) { }
+    private router: Router) { }
 
-  ngOnInit() {this.route.params.subscribe(params => {
+  ngOnInit() {
+    this.route.params.subscribe(params => {
       this.id = +params['id'];
 
-      this.new_name = this.productservice.product[this.id].name;
-      this.new_hargaBeli = this.productservice.product[this.id].HargaBeli;
-      this.new_hargaJual = this.productservice.product[this.id].HargaJual;
-      this.new_stok = this.productservice.product[this.id].stok;
+      this.new_name = this.productservice.products[this.id].name;
+      this.new_hargaBeli = this.productservice.products[this.id].HargaBeli;
+      this.new_hargaJual = this.productservice.products[this.id].HargaJual;
+      this.new_stok = this.productservice.products[this.id].stok;
     });
   }
 
-    updateproduk() {
+  updateproduk() {
 
     if (this.new_name == '') {
       alert('Nama produk wajib diisi');
