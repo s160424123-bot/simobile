@@ -52,8 +52,6 @@ export class DetailprodukPage implements OnInit {
 
     this.animasiKeranjang = true;
 
-    setTimeout(() => {
-      this.router.navigate(['/keranjang']);
-    }, 500);
+    this.router.navigate(['/keranjang']);
   }
 }

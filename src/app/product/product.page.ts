@@ -10,12 +10,12 @@ import { FormsModule } from '@angular/forms';
   standalone: false,
 })
 export class ProductPage implements OnInit {
-  products: any[] = [];  
+  products: any[] = [];
 
-constructor(
+  constructor(
     private product: Product,
     private transaksiService: Transaksi
-  ) {}
+  ) { }
 
   filterProduk: any[] = [];
   searchTerm: string = '';
@@ -41,7 +41,7 @@ constructor(
       this.filterProduk = this.products;
   }
 
-  tambahKeranjang(p: any){
+  tambahKeranjang(p: any) {
     const produkFormatted = {
       id: p.id || p.name,
       nama: p.name,

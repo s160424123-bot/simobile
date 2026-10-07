@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="light">
-      <ion-buttons slot="start">
-      <ion-back-button defaultHref="/pengaturan"></ion-back-button>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/product"></ion-back-button>
     </ion-buttons>
     <ion-title>Keranjang Belanja</ion-title>
   </ion-toolbar>
@@ -11,8 +11,7 @@
 
   <ion-list>
 
-    <ion-item-sliding
-      *ngFor="let item of cartItems; let i = index">
+    <ion-item-sliding *ngFor="let item of cartItems; let i = index">
 
       <ion-item>
 
@@ -37,9 +36,7 @@
 
       <ion-item-options side="end">
 
-        <ion-item-option
-          color="danger"
-          (click)="hapusItem(i)">
+        <ion-item-option color="danger" (click)="hapusItem(i)">
 
           Hapus
 
@@ -52,19 +49,14 @@
   </ion-list>
 
 
-  <div
-    *ngIf="cartItems.length > 0"
-    class="ion-padding">
+  <div *ngIf="cartItems.length > 0" class="ion-padding">
 
     <h3>
       Total Pembayaran:
       <strong>Rp {{ total | number }}</strong>
     </h3>
 
-    <ion-button
-      expand="block"
-      color="success"
-      (click)="konfirmasiTransaksi()">
+    <ion-button expand="block" color="success" (click)="konfirmasiTransaksi()">
 
       Konfirmasi Transaksi
 
@@ -73,9 +65,7 @@
   </div>
 
 
-  <div
-    *ngIf="cartItems.length === 0"
-    class="ion-text-center ion-padding">
+  <div *ngIf="cartItems.length === 0" class="ion-text-center ion-padding">
 
     <p>Keranjang belanja masih kosong.</p>
 

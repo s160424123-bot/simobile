@@ -23,15 +23,16 @@ export class KeranjangPage implements OnInit {
   }
 
   ionViewWillEnter() {
+    console.log('KERANJANG DIBUKA');
     this.loadCart();
   }
 
   loadCart() {
-
     this.cartItems = [...this.transaksiService.getCart()];
-
     this.total = this.transaksiService.getTotalAmount();
 
+    console.log('CART DI HALAMAN:', this.cartItems);
+    console.log('TOTAL:', this.total);
   }
 
   hapusItem(index: number) {

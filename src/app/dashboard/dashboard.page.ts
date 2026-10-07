@@ -28,9 +28,18 @@ export class DashboardPage implements OnInit {
     this.jumlahProduk = products.length;
 
     const transactions = this.transaksiService.getTransactions();
+    console.log('TRANSAKSI DI DASHBOARD:', transactions);
+    console.log('JUMLAH TRANSAKSI:', transactions.length);
 
-    const hariIni = new Date().toDateString();
-    this.totalTransaksiHariIni = transactions.filter(transaksi => new Date(transaksi.date).toDateString() === hariIni).length;
+    const hariIni = new Date();
+
+    this.totalTransaksiHariIni = transactions.filter(transaksi => {
+      const tanggalTransaksi = new Date(transaksi.date);
+
+      return tanggalTransaksi.getDate() === hariIni.getDate() &&
+        tanggalTransaksi.getMonth() === hariIni.getMonth() &&
+        tanggalTransaksi.getFullYear() === hariIni.getFullYear();
+    }).length;
 
     let jumlahTerjual: any = [];
 
