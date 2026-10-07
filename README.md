@@ -13,6 +13,7 @@ ionic serve
 
 - Menampilkan daftar produk
 - Menampilkan detail produk
+- Mencari/mengfilter produk
 - Edit produk
 - Swipe to delete
 - Menambahkan produk ke keranjang
