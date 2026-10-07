@@ -1,7 +1,5 @@
 # simobile
 
-# simobile
-
 ## Instalasi dan Menjalankan Aplikasi
 
 ```bash
