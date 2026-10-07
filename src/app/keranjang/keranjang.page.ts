@@ -28,25 +28,18 @@ export class KeranjangPage implements OnInit {
 
   loadCart() {
 
-    this.cartItems = this.cartItems = [...this.transaksiService.getCart()];
+    this.cartItems = [...this.transaksiService.getCart()];
 
     this.total = this.transaksiService.getTotalAmount();
 
-    console.log('==============================');
-    console.log('ISI CART DI KERANJANG:', this.cartItems);
-    console.log('JUMLAH ITEM:', this.cartItems.length);
+  }
 
-    this.cartItems.forEach((item, index) => {
-      console.log(
-        'Item ke-' + index,
-        item.product.nama,
-        'Jumlah:',
-        item.quantity
-      );
-    });
+  hapusItem(index: number) {
 
-    console.log('TOTAL:', this.total);
-    console.log('==============================');
+    this.transaksiService.hapusDariCart(index);
+
+    this.loadCart();
+
   }
 
   konfirmasiTransaksi() {

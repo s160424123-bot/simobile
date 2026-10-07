@@ -3,3 +3,21 @@ ion-button {
   --border-radius: 12px;
   --color: white;
 }
+
+.animasi {
+  animation: tekan 0.5s;
+}
+
+@keyframes tekan {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

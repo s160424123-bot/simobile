@@ -13,23 +13,28 @@ export class DetailprodukPage implements OnInit {
   id: any;
   products: any;
   jumlah: number = 1;
+  animasiKeranjang = false;
 
-  constructor(private route: ActivatedRoute, private transaksi: Transaksi, private product: Product, private router: Router) { }
+  constructor(
+    private route: ActivatedRoute,
+    private transaksi: Transaksi,
+    private product: Product,
+    private router: Router
+  ) { }
 
- ngOnInit() {
+  ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
 
       this.products = this.product.products[this.id];
     });
-
   }
 
   tambahKeranjang() {
     if (!this.products) {
       alert('Produk tidak ditemukan!');
       return;
-    } 
+    }
 
     if (this.jumlah > this.products.stok) {
       alert('Jumlah yang dipilih melebihi stok');
@@ -42,10 +47,13 @@ export class DetailprodukPage implements OnInit {
     };
 
     this.transaksi.addToCart(produkFormatted, this.jumlah);
-   
+
     this.products.stok -= this.jumlah;
 
-     this.router.navigate(['/keranjang']);
-   
+    this.animasiKeranjang = true;
+
+    setTimeout(() => {
+      this.router.navigate(['/keranjang']);
+    }, 500);
   }
 }

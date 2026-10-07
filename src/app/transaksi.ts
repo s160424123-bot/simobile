@@ -53,6 +53,10 @@ export class Transaksi {
     console.log('================================');
   }
 
+  hapusDariCart(index: number) {
+    this.cart.splice(index, 1);
+  }
+
   getTotalAmount(): number {
     return this.cart.reduce(
       (sum, item) =>
