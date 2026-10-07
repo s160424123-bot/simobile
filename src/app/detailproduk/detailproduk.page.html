@@ -7,25 +7,56 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">detailproduk</ion-title>
+      <ion-title size="large">Detail Produk</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-card>
-    <img [src]="products[id].gambar || 'https://placehold.co/300x200?text=No+Image'">
-    <ion-card-header>
-      <ion-card-title>{{ products[id].name }}</ion-card-title>
-      <!-- <ion-card-subtitle>{{product[id].price | number}}</ion-card-subtitle> -->
-    </ion-card-header>
+  <ion-card>
+
+    <img [src]="products.gambar || 'https://placehold.co/300x200?text=No+Image'">
+
+    <ion-card-header>
+      <ion-card-title>{{ products.name }}</ion-card-title>
+    </ion-card-header>
 
     <ion-card-content>
-      Stok: {{ products[id].stok }}<br>
-      Harga Beli: Rp.{{ products[id].HargaBeli | number }}<br>
-      Harga Jual: Rp.{{ products[id].HargaJual | number }}
+
+      Stok: {{ products.stok }}<br>
+      Harga Beli: Rp.{{ products.HargaBeli | number }}<br>
+      Harga Jual: Rp.{{ products.HargaJual | number }}<br>
+
+      <ion-item>
+        <ion-label>Jumlah</ion-label>
+
+        <ion-button
+          slot="end"
+          fill="clear"
+          (click)="jumlah = jumlah - 1"
+          [disabled]="jumlah <= 1">
+          -
+        </ion-button>
+
+        <ion-text>
+          {{ jumlah }}
+        </ion-text>
+
+        <ion-button
+          fill="clear"
+          (click)="jumlah = jumlah + 1"
+          [disabled]="jumlah >= products.stok">
+          +
+        </ion-button>
+      </ion-item>
+
     </ion-card-content>
 
-    <ion-button [disabled]="products[id].stok === 0" (click)="tambahKeranjang()">
+    <ion-button
+      expand="block"
+      [disabled]="products.stok === 0 || jumlah < 1"
+      (click)="tambahKeranjang()">
       Tambah ke Keranjang
     </ion-button>
+
   </ion-card>
+
 </ion-content>

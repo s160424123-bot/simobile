@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Riwayat Transaksi</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  
+
+  <ion-list *ngIf="transaksiList && transaksiList.length > 0; else emptyState">
+    <ion-card *ngFor="let item of transaksiList">
+      <ion-card-header>
+        <ion-card-subtitle>ID: {{ item.id || 'Transaksi' }}</ion-card-subtitle>
+        <ion-card-title>Total: Rp {{ item.total }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Tanggal: {{ item.tanggal || 'Baru saja' }}</p>
+        <!-- Tambahkan detail item jika ada -->
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+  
+  <ng-template #emptyState>
+    <div style="text-align: center; margin-top: 50px; color: #666;">
+      <p>Belum ada riwayat transaksi yang dikonfirmasi.</p>
+    </div>
+  </ng-template>
+
+</ion-content>

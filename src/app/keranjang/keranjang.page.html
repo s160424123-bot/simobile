@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="light">
+    <ion-title>Keranjang Belanja</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-list>
+
+    <ion-item *ngFor="let item of cartItems">
+
+      <ion-label>
+        <h2>{{ item.product.nama }}</h2>
+
+        <p>
+          {{ item.quantity }} x
+          Rp {{ item.product.HargaJual | number }}
+        </p>
+
+        <p>
+          Subtotal:
+          Rp {{ (item.product.HargaJual * item.quantity) | number }}
+        </p>
+      </ion-label>
+
+    </ion-item>
+
+  </ion-list>
+
+  <div *ngIf="cartItems.length > 0" class="ion-padding">
+
+    <h3>
+      Total Pembayaran:
+      <strong>Rp {{ total | number }}</strong>
+    </h3>
+
+    <ion-button
+      expand="block"
+      color="success"
+      (click)="konfirmasiTransaksi()">
+      Konfirmasi Transaksi
+    </ion-button>
+
+  </div>
+
+  <div
+    *ngIf="cartItems.length === 0"
+    class="ion-text-center ion-padding">
+
+    <p>Keranjang belanja masih kosong.</p>
+
+  </div>
+
+</ion-content>

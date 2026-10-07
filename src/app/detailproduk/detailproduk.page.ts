@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Product } from '../product';
-import { Keranjang } from '../keranjang';
+import { Transaksi } from '../transaksi';
 
 @Component({
   selector: 'app-detailproduk',
@@ -10,24 +10,42 @@ import { Keranjang } from '../keranjang';
   standalone: false,
 })
 export class DetailprodukPage implements OnInit {
-  id = 0;
-  products: any[] = [];
+  id: any;
+  products: any;
+  jumlah: number = 1;
 
-  constructor(private route: ActivatedRoute, private keranjang: Keranjang, private product: Product) { }
+  constructor(private route: ActivatedRoute, private transaksi: Transaksi, private product: Product, private router: Router) { }
 
-  ngOnInit() {
-    this.products = this.product.products;
-
+ ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
+
+      this.products = this.product.products[this.id];
     });
 
   }
 
   tambahKeranjang() {
-    this.keranjang.tambahKeKeranjang(this.products[this.id]);
-    this.products[this.id].stok--;
-    console.log(this.keranjang.getCart());
-    alert('Produk ditambahkan ke keranjang');
+    if (!this.products) {
+      alert('Produk tidak ditemukan!');
+      return;
+    } 
+
+    if (this.jumlah > this.products.stok) {
+      alert('Jumlah yang dipilih melebihi stok');
+      return;
+    }
+
+    const produkFormatted = {
+      nama: this.products.name,
+      HargaJual: this.products.HargaJual
+    };
+
+    this.transaksi.addToCart(produkFormatted, this.jumlah);
+   
+    this.products.stok -= this.jumlah;
+
+     this.router.navigate(['/keranjang']);
+   
   }
 }

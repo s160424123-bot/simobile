@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Transaksi } from '../transaksi';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transaksi',
@@ -8,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransaksiPage implements OnInit {
 
-  constructor() { }
+  daftarTransaksi: any[]= [];
+
+  constructor(
+    private transaksiServices: Transaksi
+  ) { }
 
   ngOnInit() {
+    this.loadRiwayat();
   }
 
+  ionViewWillEnter() {
+    this.loadRiwayat();
+  }
+
+  loadRiwayat() {
+    this.daftarTransaksi = this.transaksiServices.getTransactions();
+  }
 }
