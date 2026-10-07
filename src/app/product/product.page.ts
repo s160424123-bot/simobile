@@ -1,6 +1,7 @@
 import { Product } from '../product';
 import { Component, OnInit } from '@angular/core';
 import { Transaksi } from '../transaksi'; // <-- PERBAIKAN: Import service Transaksi yang benar
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product',
@@ -16,14 +17,15 @@ constructor(
     private transaksiService: Transaksi
   ) {}
 
-  // filterProduk = this.product;
-  // searchTerm: string = '';
+  filterProduk: any[] = [];
+  searchTerm: string = '';
 
-  // filterProducts() {
-  //   this.filterProduk = this.product.filter(product =>
-  //     product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-  //   );
-  // }
+   filterProducts() {
+    this.filterProduk = this.products.filter(product =>
+      product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
+
 
 
   chunkArray(arr: any[], chunkSize: number): any[][] {
@@ -36,6 +38,7 @@ constructor(
 
   ngOnInit() {
      this.products = this.product.products;
+      this.filterProduk = this.products;
   }
 
   tambahKeranjang(p: any){
